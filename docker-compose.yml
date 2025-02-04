@@ -1,0 +1,39 @@
+services:
+  backend:
+    build:
+      context: ./file_backend
+      dockerfile: Dockerfile
+    container_name: backend
+    restart: always
+    environment:
+      - DATABASE_URL=jdbc:postgresql://postgres_db:5432/postgres
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=postgres
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres_db
+  frontend:
+    build:
+      context: ./file_frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    restart: always
+    ports:
+      - "8383:80"
+    depends_on:
+      - backend
+  postgres_db:
+    image: postgres:17
+    container_name: postgres_db
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "5454:5432"
+    volumes:
+      - ${PWD}/db-data:/var/lib/postgresql/data/
+      - ${PWD}/file_database/database.sql:/docker-entrypoint-initdb.d/database.sql
+      - ${PWD}/file_database/reset_data_test.sql:/docker-entrypoint-initdb.d/reset_data_test.sql
+volumes:
+  db-data:

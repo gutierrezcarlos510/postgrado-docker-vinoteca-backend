@@ -1,0 +1,454 @@
+{
+  "item": [
+    {
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "path": [
+            "producto",
+            "listPage"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/producto/listPage"
+        }
+      },
+      "response": [
+        {
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "path": [
+                "producto",
+                "listPage"
+              ],
+              "query": [],
+              "host": "{{casa-vieja-backend}}",
+              "raw": "{{casa-vieja-backend}}/producto/listPage"
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "code": 200,
+          "name": "listPage-Example",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "jue., 05 sep. 202403:47:05 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset\u003dUTF-8"
+            }
+          ],
+          "body": "{\n    \"draw\": \"\", //The draw.\n    \"recordsFiltered\": \"\", //The records filtered.\n    \"recordsTotal\": \"\", //The records total.\n    \"data\": [ //The list of data objects.\n        {}\n    ]\n}"
+        }
+      ],
+      "name": "listPage"
+    },
+    {
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "path": [
+            "producto",
+            "list"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/producto/list"
+        }
+      },
+      "response": [
+        {
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "path": [
+                "producto",
+                "list"
+              ],
+              "query": [],
+              "host": "{{casa-vieja-backend}}",
+              "raw": "{{casa-vieja-backend}}/producto/list"
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "code": 200,
+          "name": "list-Example",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "jue., 05 sep. 202403:47:05 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset\u003dUTF-8"
+            }
+          ],
+          "body": "[\n    {\n        \"id\": 0,\n        \"nombreGenerico\": \"\",\n        \"nombreComercial\": \"\",\n        \"descripcion\": \"\",\n        \"caracteristica\": \"\",\n        \"categoriaId\": 0,\n        \"foto\": \"\",\n        \"unidadPorCaja\": 0,\n        \"stockMedio\": 0,\n        \"stockAlto\": 0,\n        \"pcUnit\": 0.0,\n        \"pcCaja\": 0.0,\n        \"pvUnit\": 0.0,\n        \"pvCaja\": 0.0,\n        \"pvUnitDescuento\": 0.0,\n        \"pvCajaDescuento\": 0.0,\n        \"pvUnitPromo\": 0.0,\n        \"pvCajaPromo\": 0.0,\n        \"status\": false,\n        \"presentacionUnitId\": 0,\n        \"presentacionCajaId\": 0\n    }\n]"
+        }
+      ],
+      "name": "list"
+    },
+    {
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\n  \"id\": 0,\n  \"nombreGenerico\": \"\",\n  \"nombreComercial\": \"\",\n  \"descripcion\": \"\",\n  \"caracteristica\": \"\",\n  \"categoriaId\": 0,\n  \"foto\": \"\",\n  \"unidadPorCaja\": 0,\n  \"stockMedio\": 0,\n  \"stockAlto\": 0,\n  \"pcUnit\": 0.0,\n  \"pcCaja\": 0.0,\n  \"pvUnit\": 0.0,\n  \"pvCaja\": 0.0,\n  \"pvUnitDescuento\": 0.0,\n  \"pvCajaDescuento\": 0.0,\n  \"pvUnitPromo\": 0.0,\n  \"pvCajaPromo\": 0.0,\n  \"status\": false,\n  \"presentacionUnitId\": 0,\n  \"presentacionCajaId\": 0\n}"
+        },
+        "url": {
+          "path": [
+            "producto",
+            "save"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/producto/save"
+        }
+      },
+      "response": [
+        {
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n    \"id\": 0,\n    \"nombreGenerico\": \"\",\n    \"nombreComercial\": \"\",\n    \"descripcion\": \"\",\n    \"caracteristica\": \"\",\n    \"categoriaId\": 0,\n    \"foto\": \"\",\n    \"unidadPorCaja\": 0,\n    \"stockMedio\": 0,\n    \"stockAlto\": 0,\n    \"pcUnit\": 0.0,\n    \"pcCaja\": 0.0,\n    \"pvUnit\": 0.0,\n    \"pvCaja\": 0.0,\n    \"pvUnitDescuento\": 0.0,\n    \"pvCajaDescuento\": 0.0,\n    \"pvUnitPromo\": 0.0,\n    \"pvCajaPromo\": 0.0,\n    \"status\": false,\n    \"presentacionUnitId\": 0,\n    \"presentacionCajaId\": 0\n}"
+            },
+            "url": {
+              "query": [],
+              "host": "{{casa-vieja-backend}}"
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "code": 200,
+          "name": "save-Example",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "jue., 05 sep. 202403:47:05 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset\u003dUTF-8"
+            }
+          ],
+          "body": "{\n    \"id\": 0,\n    \"nombreGenerico\": \"\",\n    \"nombreComercial\": \"\",\n    \"descripcion\": \"\",\n    \"caracteristica\": \"\",\n    \"categoriaId\": 0,\n    \"foto\": \"\",\n    \"unidadPorCaja\": 0,\n    \"stockMedio\": 0,\n    \"stockAlto\": 0,\n    \"pcUnit\": 0.0,\n    \"pcCaja\": 0.0,\n    \"pvUnit\": 0.0,\n    \"pvCaja\": 0.0,\n    \"pvUnitDescuento\": 0.0,\n    \"pvCajaDescuento\": 0.0,\n    \"pvUnitPromo\": 0.0,\n    \"pvCajaPromo\": 0.0,\n    \"status\": false,\n    \"presentacionUnitId\": 0,\n    \"presentacionCajaId\": 0\n}"
+        }
+      ],
+      "name": "save"
+    },
+    {
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\n  \"id\": 0,\n  \"nombreGenerico\": \"\",\n  \"nombreComercial\": \"\",\n  \"descripcion\": \"\",\n  \"caracteristica\": \"\",\n  \"categoriaId\": 0,\n  \"foto\": \"\",\n  \"unidadPorCaja\": 0,\n  \"stockMedio\": 0,\n  \"stockAlto\": 0,\n  \"pcUnit\": 0.0,\n  \"pcCaja\": 0.0,\n  \"pvUnit\": 0.0,\n  \"pvCaja\": 0.0,\n  \"pvUnitDescuento\": 0.0,\n  \"pvCajaDescuento\": 0.0,\n  \"pvUnitPromo\": 0.0,\n  \"pvCajaPromo\": 0.0,\n  \"status\": false,\n  \"presentacionUnitId\": 0,\n  \"presentacionCajaId\": 0\n}"
+        },
+        "url": {
+          "path": [
+            "producto",
+            "update",
+            ":id"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/producto/update/{id}"
+        }
+      },
+      "response": [
+        {
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n    \"id\": 0,\n    \"nombreGenerico\": \"\",\n    \"nombreComercial\": \"\",\n    \"descripcion\": \"\",\n    \"caracteristica\": \"\",\n    \"categoriaId\": 0,\n    \"foto\": \"\",\n    \"unidadPorCaja\": 0,\n    \"stockMedio\": 0,\n    \"stockAlto\": 0,\n    \"pcUnit\": 0.0,\n    \"pcCaja\": 0.0,\n    \"pvUnit\": 0.0,\n    \"pvCaja\": 0.0,\n    \"pvUnitDescuento\": 0.0,\n    \"pvCajaDescuento\": 0.0,\n    \"pvUnitPromo\": 0.0,\n    \"pvCajaPromo\": 0.0,\n    \"status\": false,\n    \"presentacionUnitId\": 0,\n    \"presentacionCajaId\": 0\n}"
+            },
+            "url": {
+              "query": [],
+              "host": "{{casa-vieja-backend}}"
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "code": 200,
+          "name": "update-Example",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "jue., 05 sep. 202403:47:05 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset\u003dUTF-8"
+            }
+          ],
+          "body": "{\n    \"id\": 0,\n    \"nombreGenerico\": \"\",\n    \"nombreComercial\": \"\",\n    \"descripcion\": \"\",\n    \"caracteristica\": \"\",\n    \"categoriaId\": 0,\n    \"foto\": \"\",\n    \"unidadPorCaja\": 0,\n    \"stockMedio\": 0,\n    \"stockAlto\": 0,\n    \"pcUnit\": 0.0,\n    \"pcCaja\": 0.0,\n    \"pvUnit\": 0.0,\n    \"pvCaja\": 0.0,\n    \"pvUnitDescuento\": 0.0,\n    \"pvCajaDescuento\": 0.0,\n    \"pvUnitPromo\": 0.0,\n    \"pvCajaPromo\": 0.0,\n    \"status\": false,\n    \"presentacionUnitId\": 0,\n    \"presentacionCajaId\": 0\n}"
+        }
+      ],
+      "name": "update"
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text",
+            "description": ""
+          }
+        ],
+        "url": {
+          "path": [
+            "producto",
+            "delete",
+            ":id"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/producto/delete/{id}"
+        }
+      },
+      "response": [
+        {
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text",
+                "description": ""
+              }
+            ],
+            "url": {
+              "path": [
+                "producto",
+                "delete",
+                ":id"
+              ],
+              "query": [],
+              "host": "{{casa-vieja-backend}}",
+              "raw": "{{casa-vieja-backend}}/producto/delete/{id}"
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "code": 200,
+          "name": "delete-Example",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "jue., 05 sep. 202403:47:05 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset\u003dUTF-8"
+            }
+          ],
+          "body": "{\n    \"id\": 0,\n    \"nombreGenerico\": \"\",\n    \"nombreComercial\": \"\",\n    \"descripcion\": \"\",\n    \"caracteristica\": \"\",\n    \"categoriaId\": 0,\n    \"foto\": \"\",\n    \"unidadPorCaja\": 0,\n    \"stockMedio\": 0,\n    \"stockAlto\": 0,\n    \"pcUnit\": 0.0,\n    \"pcCaja\": 0.0,\n    \"pvUnit\": 0.0,\n    \"pvCaja\": 0.0,\n    \"pvUnitDescuento\": 0.0,\n    \"pvCajaDescuento\": 0.0,\n    \"pvUnitPromo\": 0.0,\n    \"pvCajaPromo\": 0.0,\n    \"status\": false,\n    \"presentacionUnitId\": 0,\n    \"presentacionCajaId\": 0\n}"
+        }
+      ],
+      "name": "delete"
+    },
+    {
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "path": [
+            "producto",
+            "findByCategoria",
+            ":value"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/producto/findByCategoria/{value}"
+        }
+      },
+      "response": [
+        {
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "path": [
+                "producto",
+                "findByCategoria",
+                ":value"
+              ],
+              "query": [],
+              "host": "{{casa-vieja-backend}}",
+              "raw": "{{casa-vieja-backend}}/producto/findByCategoria/{value}"
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "code": 200,
+          "name": "findByCategoria-Example",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "jue., 05 sep. 202403:47:05 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset\u003dUTF-8"
+            }
+          ],
+          "body": "[\n    {\n        \"id\": 0,\n        \"nombreGenerico\": \"\",\n        \"nombreComercial\": \"\",\n        \"descripcion\": \"\",\n        \"caracteristica\": \"\",\n        \"categoriaId\": 0,\n        \"foto\": \"\",\n        \"unidadPorCaja\": 0,\n        \"stockMedio\": 0,\n        \"stockAlto\": 0,\n        \"pcUnit\": 0.0,\n        \"pcCaja\": 0.0,\n        \"pvUnit\": 0.0,\n        \"pvCaja\": 0.0,\n        \"pvUnitDescuento\": 0.0,\n        \"pvCajaDescuento\": 0.0,\n        \"pvUnitPromo\": 0.0,\n        \"pvCajaPromo\": 0.0,\n        \"status\": false,\n        \"presentacionUnitId\": 0,\n        \"presentacionCajaId\": 0\n    }\n]"
+        }
+      ],
+      "name": "findByCategoria"
+    }
+  ],
+  "info": {
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "name": "ProductoC-20240905034705",
+    "description": "ProductoC"
+  }
+}

@@ -1,0 +1,392 @@
+{
+  "item": [
+    {
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "path": [
+            "barrio",
+            "listPage"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/barrio/listPage"
+        }
+      },
+      "response": [
+        {
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "path": [
+                "barrio",
+                "listPage"
+              ],
+              "query": [],
+              "host": "{{casa-vieja-backend}}",
+              "raw": "{{casa-vieja-backend}}/barrio/listPage"
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "code": 200,
+          "name": "listPage-Example",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "jue., 05 sep. 202404:51:57 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset\u003dUTF-8"
+            }
+          ],
+          "body": "{\n    \"draw\": \"\", //The draw.\n    \"recordsFiltered\": \"\", //The records filtered.\n    \"recordsTotal\": \"\", //The records total.\n    \"data\": [ //The list of data objects.\n        {}\n    ]\n}"
+        }
+      ],
+      "name": "listPage"
+    },
+    {
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\n  \"id\": 0,\n  \"nombre\": \"\",\n  \"status\": false,\n  \"zonaId\": 0\n}"
+        },
+        "url": {
+          "path": [
+            "barrio",
+            "save"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/barrio/save"
+        }
+      },
+      "response": [
+        {
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n    \"id\": 0,\n    \"nombre\": \"\",\n    \"status\": false,\n    \"zonaId\": 0\n}"
+            },
+            "url": {
+              "query": [],
+              "host": "{{casa-vieja-backend}}"
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "code": 200,
+          "name": "save-Example",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "jue., 05 sep. 202404:51:57 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset\u003dUTF-8"
+            }
+          ],
+          "body": "{\n    \"id\": 0,\n    \"nombre\": \"\",\n    \"status\": false,\n    \"zonaId\": 0\n}"
+        }
+      ],
+      "name": "save"
+    },
+    {
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\n  \"id\": 0,\n  \"nombre\": \"\",\n  \"status\": false,\n  \"zonaId\": 0\n}"
+        },
+        "url": {
+          "path": [
+            "barrio",
+            "update",
+            ":id"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/barrio/update/{id}"
+        }
+      },
+      "response": [
+        {
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n    \"id\": 0,\n    \"nombre\": \"\",\n    \"status\": false,\n    \"zonaId\": 0\n}"
+            },
+            "url": {
+              "query": [],
+              "host": "{{casa-vieja-backend}}"
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "code": 200,
+          "name": "update-Example",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "jue., 05 sep. 202404:51:57 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset\u003dUTF-8"
+            }
+          ],
+          "body": "{\n    \"id\": 0,\n    \"nombre\": \"\",\n    \"status\": false,\n    \"zonaId\": 0\n}"
+        }
+      ],
+      "name": "update"
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text",
+            "description": ""
+          }
+        ],
+        "url": {
+          "path": [
+            "barrio",
+            "delete",
+            ":id"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/barrio/delete/{id}"
+        }
+      },
+      "response": [
+        {
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text",
+                "description": ""
+              }
+            ],
+            "url": {
+              "path": [
+                "barrio",
+                "delete",
+                ":id"
+              ],
+              "query": [],
+              "host": "{{casa-vieja-backend}}",
+              "raw": "{{casa-vieja-backend}}/barrio/delete/{id}"
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "code": 200,
+          "name": "delete-Example",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "jue., 05 sep. 202404:51:57 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset\u003dUTF-8"
+            }
+          ],
+          "body": "{\n    \"id\": 0,\n    \"nombre\": \"\",\n    \"status\": false,\n    \"zonaId\": 0\n}"
+        }
+      ],
+      "name": "delete"
+    },
+    {
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "path": [
+            "barrio",
+            "findByZona",
+            ":zonaId"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/barrio/findByZona/{zonaId}"
+        }
+      },
+      "response": [
+        {
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "path": [
+                "barrio",
+                "findByZona",
+                ":zonaId"
+              ],
+              "query": [],
+              "host": "{{casa-vieja-backend}}",
+              "raw": "{{casa-vieja-backend}}/barrio/findByZona/{zonaId}"
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "code": 200,
+          "name": "findByTipo-Example",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "jue., 05 sep. 202404:51:57 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset\u003dUTF-8"
+            }
+          ],
+          "body": "[\n    {\n        \"id\": 0,\n        \"nombre\": \"\",\n        \"status\": false,\n        \"zonaId\": 0\n    }\n]"
+        }
+      ],
+      "name": "findByTipo"
+    }
+  ],
+  "info": {
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "name": "BarrioC-20240905045157",
+    "description": "BarrioC"
+  }
+}

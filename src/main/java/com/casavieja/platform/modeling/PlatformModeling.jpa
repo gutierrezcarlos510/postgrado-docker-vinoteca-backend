@@ -1,0 +1,1317 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" ptype="MONOLITH" ppkg="com.sistecbol.containbol.cash.platform.entities" epkg="auxiliar" v="5.2" rws="_15834539936372" Pws="_15834539936372" cws="_15834539936372" thm="PDarkColorScheme" persistenceUnitName="DEFAULT_PU" sm="false" xs="false" id="_15834539936371" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd">
+    <jpa:entity uil="Submenus" compositePrimaryKeyClass="SubmenuPK" abs="false" class="Submenu" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_15834542571083">
+        <jpa:ts e="true">
+            <jpa:a>_15834542571444</jpa:a>
+            <jpa:a>_15834545235109</jpa:a>
+            <jpa:a>_158345452464610</jpa:a>
+            <jpa:a>_158345452526211</jpa:a>
+            <jpa:a>_158345452578212</jpa:a>
+            <jpa:a>_158345452626113</jpa:a>
+        </jpa:ts>
+        <jpa:inf e="true" n="java.io.Serializable"/>
+        <jpa:des>Tabla que agrupa los submenus con las url de los procesos</jpa:des>
+        <jpa:ath>Carlos Gutierrez</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="name" uil="Nombre" id="_15834545235109">
+                <jpa:des>Nombre del submenu</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:ne m="El campo no puede estar vacio."/>
+                    <jpa:si mi="3" ma="50" m="El texto debe estar entre 3 y 50 caracteres"/>
+                </jpa:bv>
+                <jpa:column name="name" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="description" uil="Descripcion" id="_158345452464610">
+                <jpa:des>Descripcion del menu</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:ne m="El campo no puede estar vacio."/>
+                    <jpa:si mi="3" ma="150" m="El texto debe estar entre 3 y 150 caracteres"/>
+                </jpa:bv>
+                <jpa:column name="description" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(150)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="url" uil="Direccion Url" id="_158345452526211">
+                <jpa:des>Url al controlador que se mapea</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:ne m="El campo no puede estar vacio."/>
+                    <jpa:si mi="3" ma="50" m="El texto debe estar entre 3 y 150 caracteres"/>
+                </jpa:bv>
+                <jpa:column name="url" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="icon" uil="Icono" id="_158345452626113">
+                <jpa:des>Icono del submenu</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:ne m="El campo no puede estar vacio."/>
+                    <jpa:si mi="3" ma="50" m="El campo debe estar entre 3 y 50 caracteres"/>
+                </jpa:bv>
+                <jpa:column name="icon" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" uil="Estado" ft="false" id="_158345452578212">
+                <jpa:des>Estado activo o inactivo del submenu</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:nn m="Campo requerido"/>
+                </jpa:bv>
+                <jpa:column name="status" unique="false" nullable="false" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="submenuId" uil="Codigo" id="_15834542571444">
+                <jpa:des>Codigo Identificador del submenu</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="submenu_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="submenu_seq"/>
+                <jpa:sequence-generator name="submenu_seq" sequence-name="submenu_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Submenu.findAll">
+            <jpa:query>Select e from Submenu e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Submenu.findByName">
+            <jpa:query>Select s from Submenu s where s.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Submenu.findByDescription">
+            <jpa:query>Select s from Submenu s where s.description=:description</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Submenu.findByUrl">
+            <jpa:query>Select s from Submenu s where s.url=:url</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Submenu.findByStatus">
+            <jpa:query>Select s from Submenu s where s.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Submenu.findByIcon">
+            <jpa:query>Select s from Submenu s where s.icon=:icon</jpa:query>
+        </jpa:nq>
+        <jpa:table name="SUBMENUS"/>
+    </jpa:entity>
+    <jpa:entity uil="Submenus" compositePrimaryKeyClass="MenuPK" abs="false" class="Menu" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158345731450415">
+        <jpa:ts e="true">
+            <jpa:a>_158345731450416</jpa:a>
+            <jpa:a>_158345731450417</jpa:a>
+            <jpa:a>_158345731450418</jpa:a>
+            <jpa:a>_158345731450419</jpa:a>
+            <jpa:a>_158345731450420</jpa:a>
+            <jpa:a>_158345731450421</jpa:a>
+        </jpa:ts>
+        <jpa:inf e="true" n="java.io.Serializable"/>
+        <jpa:des>Tabla que agrupa los submenus con las url de los procesos</jpa:des>
+        <jpa:ath>Carlos Gutierrez</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="name" uil="Nombre" id="_158345731450417">
+                <jpa:des>Nombre del menu</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:ne m="El campo no puede estar vacio."/>
+                    <jpa:si mi="3" ma="50" m="El texto debe estar entre 3 y 50 caracteres"/>
+                </jpa:bv>
+                <jpa:column name="name" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="description" uil="Descripcion" id="_158345731450418">
+                <jpa:des>Descripcion del menu</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:ne m="El campo no puede estar vacio."/>
+                    <jpa:si mi="3" ma="150" m="El texto debe estar entre 3 y 150 caracteres"/>
+                </jpa:bv>
+                <jpa:column name="description" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(150)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="url" uil="Direccion Url" id="_158345731450419">
+                <jpa:des>Url al controlador que se mapea</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:ne m="El campo no puede estar vacio."/>
+                    <jpa:si mi="3" ma="50" m="El texto debe estar entre 3 y 150 caracteres"/>
+                </jpa:bv>
+                <jpa:column name="url" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="icon" uil="Icono" id="_158345731450421">
+                <jpa:des>Icono del menu</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:ne m="El campo no puede estar vacio."/>
+                    <jpa:si mi="3" ma="50" m="El campo debe estar entre 3 y 50 caracteres"/>
+                </jpa:bv>
+                <jpa:column name="icon" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" uil="Estado" ft="false" id="_158345731450420">
+                <jpa:des>Estado activo o inactivo del menu</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:nn m="Campo requerido"/>
+                </jpa:bv>
+                <jpa:column name="status" unique="false" nullable="false" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="menuId" uil="Codigo" id="_158345731450416">
+                <jpa:des>Codigo Identificador del menu</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="menu_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="menu_seq"/>
+                <jpa:sequence-generator name="menu_seq" sequence-name="menu_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Menu.findAll">
+            <jpa:query>Select e from Menu e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Menu.findByName">
+            <jpa:query>Select s from Menu s where s.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Menu.findByDescription">
+            <jpa:query>Select s from Menu s where s.description=:description</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Menu.findByUrl">
+            <jpa:query>Select s from Menu s where s.url=:url</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Menu.findByStatus">
+            <jpa:query>Select s from Menu s where s.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Menu.findByIcon">
+            <jpa:query>Select s from Menu s where s.icon=:icon</jpa:query>
+        </jpa:nq>
+        <jpa:table name="MENUS"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="RolPK" abs="false" class="Rol" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158345995466629">
+        <jpa:ts e="true">
+            <jpa:a>_158345995466630</jpa:a>
+            <jpa:a>_158346027002232</jpa:a>
+            <jpa:a>_158346027235833</jpa:a>
+            <jpa:a>_158346027421434</jpa:a>
+            <jpa:a>_158346027591835</jpa:a>
+        </jpa:ts>
+        <jpa:inf e="true" n="java.io.Serializable"/>
+        <jpa:des>Agrupa los roles de los usuarios</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="name" id="_158346027002232">
+                <jpa:des>Nombre del rol</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="name" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="description" id="_158346027235833">
+                <jpa:des>Descripcion del rol</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="description" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(150)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="icon" id="_158346027421434">
+                <jpa:des>icono del rol</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="icon" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_158346027591835">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="rolId" id="_158345995466630">
+                <jpa:des>Codigo identificador</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="rol_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="rol_seq"/>
+                <jpa:sequence-generator name="rol_seq" sequence-name="rol_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Rol.findAll">
+            <jpa:query>Select e from Rol e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Rol.findByName">
+            <jpa:query>Select r from Rol r where r.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Rol.findByDescription">
+            <jpa:query>Select r from Rol r where r.description=:description</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Rol.findByIcon">
+            <jpa:query>Select r from Rol r where r.icon=:icon</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Rol.findByStatus">
+            <jpa:query>Select r from Rol r where r.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:table name="ROLES"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="TaskPK" abs="false" class="Task" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158346127190236">
+        <jpa:ts e="true">
+            <jpa:a>_158346127190337</jpa:a>
+            <jpa:a>_158346131495039</jpa:a>
+            <jpa:a>_158346131580640</jpa:a>
+            <jpa:a>_158346131655841</jpa:a>
+            <jpa:a>_1583469955408118</jpa:a>
+            <jpa:a>_158346132047842</jpa:a>
+        </jpa:ts>
+        <jpa:des>Tareas o metodos del controlador</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="name" id="_158346131495039">
+                <jpa:des>Nombre de la tarea</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="name" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="description" id="_158346131580640">
+                <jpa:des>Descripcion breve de la tarea</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="description" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(150)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="url" id="_158346131655841">
+                <jpa:des>Descripcion de la direccion a la vista</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="url" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="taskControllerId" id="_1583469955408118">
+                <jpa:des>Codigo identificador del grupo de controladores de tareas al que pertenece</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="task_controller_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_158346132047842">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="taskId" id="_158346127190337">
+                <jpa:des>Codigo identificador</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="task_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="task_seq"/>
+                <jpa:sequence-generator name="task_seq" sequence-name="task_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Task.findAll">
+            <jpa:query>Select e from Task e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Task.findByName">
+            <jpa:query>Select t from Task t where t.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Task.findByDescription">
+            <jpa:query>Select t from Task t where t.description=:description</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Task.findByUrl">
+            <jpa:query>Select t from Task t where t.url=:url</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Task.findByStatus">
+            <jpa:query>Select t from Task t where t.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Task.findByTaskControllerId">
+            <jpa:query>Select t from Task t where t.taskControllerId=:taskControllerId</jpa:query>
+        </jpa:nq>
+        <jpa:table name="TASKS"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="PersonPK" abs="false" class="Person" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158346185502543">
+        <jpa:des>Tabla que agrupa a todas las personas del sistema</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="name" id="_158346187498246">
+                <jpa:des>Nombre de la persona</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="name" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(100)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="firstLastname" id="_158346187664647">
+                <jpa:des>Primer apellido</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="first_lastname" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(100)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="secondLastname" id="_158346193833448">
+                <jpa:des>Segundo apellido</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="second_lastname" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(100)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="gender" id="_158346198139850">
+                <jpa:des>Genero: M=masculino, F=fenenino</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="gender" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(1)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="ci" id="_158356177137458">
+                <jpa:des>Carnet de identidad</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:ne m="Este campo no puede estr vacio"/>
+                    <jpa:si mi="1" ma="25" m="El campo debe estar entre 1 y 25 caracteres"/>
+                </jpa:bv>
+                <jpa:column name="ci" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(25)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_158346202235051">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" xvt="" am="PRIVATE" name="personId" id="_158346185502644">
+                <jpa:des>Codigo identificador</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="person_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="person_seq"/>
+                <jpa:sequence-generator name="person_seq" sequence-name="person_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Person.findAll">
+            <jpa:query>Select e from Person e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Person.findByName">
+            <jpa:query>Select p from Person p where p.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Person.findByFirstLastname">
+            <jpa:query>Select p from Person p where p.firstLastname=:firstLastname</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Person.findBySecondLastname">
+            <jpa:query>Select p from Person p where p.secondLastname=:secondLastname</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Person.findByMaritalStatus">
+            <jpa:query>Select p from Person p where p.maritalStatus=:maritalStatus</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Person.findByGender">
+            <jpa:query>Select p from Person p where p.gender=:gender</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Person.findByStatus">
+            <jpa:query>Select p from Person p where p.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Person.findByCi">
+            <jpa:query>Select p from Person p where p.ci=:ci</jpa:query>
+        </jpa:nq>
+        <jpa:table name="PERSONS"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="SystemUserPK" abs="false" class="SystemUser" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158346276286552">
+        <jpa:ts e="true">
+            <jpa:a>_158346276286553</jpa:a>
+            <jpa:a>_158346284891855</jpa:a>
+            <jpa:a>_158346285187856</jpa:a>
+            <jpa:a>_158346285727057</jpa:a>
+            <jpa:a>_158346289023858</jpa:a>
+            <jpa:a>_158346594167795</jpa:a>
+            <jpa:a>_158346328595059</jpa:a>
+        </jpa:ts>
+        <jpa:des>Tabla de todos los usuarios que interactuan con el sistema</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="username" id="_158346284891855">
+                <jpa:des>Nombrede usuario</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="username" unique="true" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="alias" id="_158346285187856">
+                <jpa:des>Alias del usuario</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="alias" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(25)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="email" id="_158346285727057">
+                <jpa:des>Correo electronico del usuario</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="email" unique="true" nullable="true" insertable="true" updatable="true" column-definition="varchar(100)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="avatar" id="_158346289023858">
+                <jpa:des>foto de perfil del usuario</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="avatar" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="typeSystemUser" id="_158346594167795">
+                <jpa:des>Tipo de usuario del sistema: ROOT, ADMIN, CLIENT</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="type_user_system" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(6)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_158346328595059">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" xvt="" am="PRIVATE" name="systemUserId" id="_158346276286553">
+                <jpa:des>Codigo identificador</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="system_user_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8"/>
+                <jpa:generated-value strategy="DEFAULT"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="SystemUser.findAll">
+            <jpa:query>Select e from SystemUser e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="SystemUser.findByUsername">
+            <jpa:query>Select s from SystemUser s where s.username=:username</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="SystemUser.findByAlias">
+            <jpa:query>Select s from SystemUser s where s.alias=:alias</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="SystemUser.findByEmail">
+            <jpa:query>Select s from SystemUser s where s.email=:email</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="SystemUser.findByAvatar">
+            <jpa:query>Select s from SystemUser s where s.avatar=:avatar</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="SystemUser.findByStatus">
+            <jpa:query>Select s from SystemUser s where s.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="SystemUser.findByTypeSystemUser">
+            <jpa:query>Select s from SystemUser s where s.typeSystemUser=:typeSystemUser</jpa:query>
+        </jpa:nq>
+        <jpa:table name="SYSTEMS_USERS"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="AccessKeyPK" abs="false" class="AccessKey" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158346336710760">
+        <jpa:ts e="true">
+            <jpa:a>_158346336710861</jpa:a>
+            <jpa:a>_158346340414263</jpa:a>
+            <jpa:a>_158346347250264</jpa:a>
+            <jpa:a>_1583470046992119</jpa:a>
+            <jpa:a>_158346353802265</jpa:a>
+        </jpa:ts>
+        <jpa:des>Tabla que guarda todas las claves de acceso al sistema</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="typeAccess" id="_158346340414263">
+                <jpa:des>Tipo de acceso: USER_PASS:usuario y clave, BIOMETRIC biometrico, EMAIL gmail</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="type_access" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(15)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="valueAccess" id="_158346347250264">
+                <jpa:des>Contraseña de acceso</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="value_access" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(1024)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Long" v="true" xvt="" am="PRIVATE" name="systemUserId" id="_1583470046992119">
+                <jpa:des>Codigo identificador del sistema de usuario al que pertenece</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="system_user_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8" precision="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_158346353802265">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" xvt="" am="PRIVATE" name="accessKeyId" id="_158346336710861">
+                <jpa:des>Codigo identificador</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="access_key_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="access_key_seq"/>
+                <jpa:sequence-generator name="access_key_seq" sequence-name="access_key_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="AccessKey.findAll">
+            <jpa:query>Select e from AccessKey e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="AccessKey.findByTypeAccess">
+            <jpa:query>Select a from AccessKey a where a.typeAccess=:typeAccess</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="AccessKey.findByValueAccess">
+            <jpa:query>Select a from AccessKey a where a.valueAccess=:valueAccess</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="AccessKey.findByStatus">
+            <jpa:query>Select a from AccessKey a where a.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="AccessKey.findBySystemUserId">
+            <jpa:query>Select a from AccessKey a where a.systemUserId=:systemUserId</jpa:query>
+        </jpa:nq>
+        <jpa:table name="ACCESS_KEYS"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="CompanyPK" abs="false" class="Company" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158346391174666">
+        <jpa:ts e="true">
+            <jpa:a>_158346391174867</jpa:a>
+            <jpa:a>_158346400785469</jpa:a>
+            <jpa:a>_158346401768670</jpa:a>
+            <jpa:a>_158346402179071</jpa:a>
+            <jpa:a>_158346402282272</jpa:a>
+            <jpa:a>_158346419638273</jpa:a>
+            <jpa:a>_158346457563881</jpa:a>
+            <jpa:a>_158346457849482</jpa:a>
+            <jpa:a>_158346458437483</jpa:a>
+            <jpa:a>_158346597642296</jpa:a>
+            <jpa:a>_158346608863897</jpa:a>
+            <jpa:a>_158346426751874</jpa:a>
+        </jpa:ts>
+        <jpa:des>Tabla que agrupa todas las empresas del sistema</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="name" id="_158346400785469">
+                <jpa:des>Nombre de la empresa</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="name" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(100)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="description" id="_158346401768670">
+                <jpa:des>Descripcion de la empresa</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="description" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(250)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="nit" id="_158346402179071">
+                <jpa:des>Nit de la empresa</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="nit" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(25)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="place" id="_158346402282272">
+                <jpa:des>Lugar y pais de la empresa</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="place" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(100)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="phone" id="_158346419638273">
+                <jpa:des>Telefono celular de la empresa</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="phone" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(100)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="webPage" id="_158346457563881">
+                <jpa:des>Pagina web de la empresa</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="web_page" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(100)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="email" id="_158346457849482">
+                <jpa:des>Correo electronico de la empresa</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="email" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(100)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="fax" id="_158346458437483">
+                <jpa:des>Fax de la empresa</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="fax" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Long" v="true" xvt="" am="PRIVATE" name="typeCompanyId" id="_158346597642296">
+                <jpa:des>Codigo identificador del tipo de compañia:</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="type_company" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8" precision="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="typeSystemCompany" id="_158346608863897">
+                <jpa:des>Tipo de compañia en el sistema: PROPERTY - CLIENT</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="type_system_company" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(10)" length="255"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_158346426751874">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="companyId" id="_158346391174867">
+                <jpa:des>Codigo identificador</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="company_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="company_seq"/>
+                <jpa:sequence-generator name="company_seq" sequence-name="company_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Company.findAll">
+            <jpa:query>Select e from Company e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Company.findByName">
+            <jpa:query>Select c from Company c where c.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Company.findByDescription">
+            <jpa:query>Select c from Company c where c.description=:description</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Company.findByNit">
+            <jpa:query>Select c from Company c where c.nit=:nit</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Company.findByPlace">
+            <jpa:query>Select c from Company c where c.place=:place</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Company.findByPhone">
+            <jpa:query>Select c from Company c where c.phone=:phone</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Company.findByStatus">
+            <jpa:query>Select c from Company c where c.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Company.findByWebPage">
+            <jpa:query>Select c from Company c where c.webPage=:webPage</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Company.findByEmail">
+            <jpa:query>Select c from Company c where c.email=:email</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Company.findByFax">
+            <jpa:query>Select c from Company c where c.fax=:fax</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Company.findByTypeCompanyId">
+            <jpa:query>Select c from Company c where c.typeCompanyId=:typeCompanyId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Company.findByTypeSystemCompany">
+            <jpa:query>Select c from Company c where c.typeSystemCompany=:typeSystemCompany</jpa:query>
+        </jpa:nq>
+        <jpa:table name="COMPANIES"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="BranchOfficePK" abs="false" class="BranchOffice" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158346440086575">
+        <jpa:ts e="true">
+            <jpa:a>_158346440086676</jpa:a>
+            <jpa:a>_158346444570278</jpa:a>
+            <jpa:a>_158346444979079</jpa:a>
+            <jpa:a>_158346453299080</jpa:a>
+            <jpa:a>_158346527282289</jpa:a>
+            <jpa:a>_1583466555750101</jpa:a>
+        </jpa:ts>
+        <jpa:des>Tabla que guarda las sucursales de una empresa</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="name" id="_158346444570278">
+                <jpa:des>nombre de la sucursal</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="name" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(100)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="description" id="_158346444979079">
+                <jpa:des>Descripcion de la sucursal</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="description" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(500)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="address" id="_158346453299080">
+                <jpa:des>Direcion de la sucursal</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="address" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(250)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="companyId" id="_158346527282289">
+                <jpa:des>Codigo identificador a la empresa que pertenece</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="company_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_1583466555750101">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="branchOfficeId" id="_158346440086676">
+                <jpa:des>Codigo identificador</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="branch_office_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="branch_office_seq"/>
+                <jpa:sequence-generator name="branch_office_seq" sequence-name="branch_office_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="BranchOffice.findAll">
+            <jpa:query>Select e from BranchOffice e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="BranchOffice.findByName">
+            <jpa:query>Select b from BranchOffice b where b.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="BranchOffice.findByDescription">
+            <jpa:query>Select b from BranchOffice b where b.description=:description</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="BranchOffice.findByAddress">
+            <jpa:query>Select b from BranchOffice b where b.address=:address</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="BranchOffice.findByCompanyId">
+            <jpa:query>Select b from BranchOffice b where b.companyId=:companyId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="BranchOffice.findByStatus">
+            <jpa:query>Select b from BranchOffice b where b.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:table name="BRANCH_OFFICES"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="ManagementPK" abs="false" class="Management" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158346473656984">
+        <jpa:ts e="true">
+            <jpa:a>_158346473657085</jpa:a>
+            <jpa:a>_158346490304687</jpa:a>
+            <jpa:a>_158346524299888</jpa:a>
+            <jpa:a>_158346641479098</jpa:a>
+            <jpa:a>_158346645194299</jpa:a>
+            <jpa:a>_1583466649542103</jpa:a>
+        </jpa:ts>
+        <jpa:des>Tabla que guarda la relacion de la sucursal y la gestion</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="Short" v="true" xvt="" am="PRIVATE" name="yearNumber" id="_158346490304687">
+                <jpa:des>Numero de año</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="year_number" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int2" precision="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="branchOfficeId" id="_158346524299888">
+                <jpa:des>Codigo identificador de la sucursal</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="branch_office_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="java.util.Date" v="true" xvt="" am="PRIVATE" name="startDate" id="_158346641479098">
+                <jpa:des>Fecha de inicio de la empresa en el sistema</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:temporal>DATE</jpa:temporal>
+                <jpa:column name="start_date" unique="false" nullable="true" insertable="true" updatable="true" column-definition="date"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="java.util.Date" v="true" xvt="" am="PRIVATE" name="endDate" id="_158346645194299">
+                <jpa:des>Fecha de fin del sistema en el sistema</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:temporal>DATE</jpa:temporal>
+                <jpa:column name="end_date" unique="false" nullable="true" insertable="true" updatable="true" column-definition="date"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_1583466649542103">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="managementId" id="_158346473657085">
+                <jpa:des>Codigo identificador</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="management_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="management_seq"/>
+                <jpa:sequence-generator name="management_seq" sequence-name="management_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="Management.findAll">
+            <jpa:query>Select e from Management e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Management.findByYearNumber">
+            <jpa:query>Select m from Management m where m.yearNumber=:yearNumber</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Management.findByBranchOfficeId">
+            <jpa:query>Select m from Management m where m.branchOfficeId=:branchOfficeId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Management.findByStartDate">
+            <jpa:query>Select m from Management m where m.startDate=:startDate</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Management.findByEndDate">
+            <jpa:query>Select m from Management m where m.endDate=:endDate</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Management.findByStateDate">
+            <jpa:query>Select m from Management m where m.stateDate=:stateDate</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Management.findByStatus">
+            <jpa:query>Select m from Management m where m.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:table name="MANAGEMENTS"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="UserManagementPK" abs="false" class="UserManagement" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158346538926790">
+        <jpa:ts e="true">
+            <jpa:a>_158346538926891</jpa:a>
+            <jpa:a>_158346545094293</jpa:a>
+            <jpa:a>_158346546063894</jpa:a>
+            <jpa:a>_1583468285088104</jpa:a>
+            <jpa:a>_1583466631934102</jpa:a>
+        </jpa:ts>
+        <jpa:des>Tabla que guarda la el usuario y sus diferentes sucursales asignadas</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="Long" v="true" xvt="" am="PRIVATE" name="systemUserId" id="_158346545094293">
+                <jpa:des>Codigo identificadoe del Usuario del sistema</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="system_user_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8" precision="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="managementId" id="_158346546063894">
+                <jpa:des>Codigo identificador de la sucursal</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="management_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="typeOperation" id="_1583468285088104">
+                <jpa:des>Tipo de operacion: readonly=solo lectura,READ_WRITE= lectura y escritura</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="type_operation" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(15)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_1583466631934102">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" xvt="" am="PRIVATE" name="userManagementId" id="_158346538926891">
+                <jpa:des>Codigo identificador</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="user_management_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="user_management_seq"/>
+                <jpa:sequence-generator name="user_management_seq" sequence-name="user_management_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="UserManagement.findAll">
+            <jpa:query>Select e from UserManagement e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="UserManagement.findBySystemUserId">
+            <jpa:query>Select u from UserManagement u where u.systemUserId=:systemUserId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="UserManagement.findByManagementId">
+            <jpa:query>Select u from UserManagement u where u.managementId=:managementId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="UserManagement.findByStatus">
+            <jpa:query>Select u from UserManagement u where u.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="UserManagement.findByTypeOperation">
+            <jpa:query>Select u from UserManagement u where u.typeOperation=:typeOperation</jpa:query>
+        </jpa:nq>
+        <jpa:table name="USERS_MANAGEMENTS"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="TaskControllerPK" abs="false" class="TaskController" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_1583469869188112">
+        <jpa:ts e="true">
+            <jpa:a>_1583469869189113</jpa:a>
+            <jpa:a>_1583469922824115</jpa:a>
+            <jpa:a>_1583469930664116</jpa:a>
+            <jpa:a>_1583469934584117</jpa:a>
+        </jpa:ts>
+        <jpa:des>Tabla que agrupa todos los controladores del sistema</jpa:des>
+        <jpa:ath>CARLOS</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="name" id="_1583469922824115">
+                <jpa:des>Nombre del controlador</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="name" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="description" id="_1583469930664116">
+                <jpa:des>Descripcion del controlador</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="description" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(150)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="moduleSystemId" id="_158355903985457">
+                <jpa:des>Modulo del sistema al que pertenece</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:nn m="El campo no puede ser nulo."/>
+                </jpa:bv>
+                <jpa:column name="module_system_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_1583469934584117">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="taskControllerId" id="_1583469869189113">
+                <jpa:des>Codigo del controlador</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="task_controller_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="task_controller_seq"/>
+                <jpa:sequence-generator name="task_controller_seq" sequence-name="task_controller_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="TaskController.findAll">
+            <jpa:query>Select e from TaskController e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="TaskController.findByName">
+            <jpa:query>Select t from TaskController t where t.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="TaskController.findByDescription">
+            <jpa:query>Select t from TaskController t where t.description=:description</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="TaskController.findByStatus">
+            <jpa:query>Select t from TaskController t where t.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="TaskController.findByModuleSystemId">
+            <jpa:query>Select t from TaskController t where t.moduleSystemId=:moduleSystemId</jpa:query>
+        </jpa:nq>
+        <jpa:table name="TASKS_CONTROLLERS"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="ModuleSystemPK" abs="false" class="ModuleSystem" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158355797190627">
+        <jpa:ts e="true">
+            <jpa:a>_158355797190928</jpa:a>
+            <jpa:a>_158355808314430</jpa:a>
+            <jpa:a>_158355809122131</jpa:a>
+            <jpa:a>_158355809560632</jpa:a>
+            <jpa:a>_158355809706233</jpa:a>
+        </jpa:ts>
+        <jpa:inf e="true" n="java.io.Serializable"/>
+        <jpa:des>Tabla que guarda todos los modulos desarrollados en el sistema</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="codeModule" id="_158355808314430">
+                <jpa:des>Codigo corto que ve el usuario</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="code_module" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(25)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="name" id="_158355809122131">
+                <jpa:des>nombre del modulo del sistema</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="name" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="description" id="_158355809560632">
+                <jpa:des>Descripcion del modulo del sistema</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="description" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(150)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_158355809706233">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="moduleSystemId" id="_158355797190928">
+                <jpa:des>Codigo identificador del modulo del sistema</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="module_system_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="module_system_seq"/>
+                <jpa:sequence-generator name="module_system_seq" sequence-name="module_system_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="ModuleSystem.findAll">
+            <jpa:query>Select e from ModuleSystem e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ModuleSystem.findByCodeModule">
+            <jpa:query>Select m from ModuleSystem m where m.codeModule=:codeModule</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ModuleSystem.findByName">
+            <jpa:query>Select m from ModuleSystem m where m.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ModuleSystem.findByDescription">
+            <jpa:query>Select m from ModuleSystem m where m.description=:description</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ModuleSystem.findByStatus">
+            <jpa:query>Select m from ModuleSystem m where m.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ModuleSystem.findByAttribute">
+            <jpa:query>Select m from ModuleSystem m where m.attribute=:attribute</jpa:query>
+        </jpa:nq>
+        <jpa:table name="MODULES_SYSTEMS"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="ParameterSystemPK" abs="false" class="ParameterSystem" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158355820423235">
+        <jpa:ts e="true">
+            <jpa:a>_158355820423236</jpa:a>
+            <jpa:a>_158355822491838</jpa:a>
+            <jpa:a>_158355823206239</jpa:a>
+            <jpa:a>_158355823280640</jpa:a>
+            <jpa:a>_158355825194141</jpa:a>
+        </jpa:ts>
+        <jpa:inf e="true" n="java.io.Serializable"/>
+        <jpa:des>Tabla que guarda los parametros del sistema</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="name" id="_158355822491838">
+                <jpa:des>nombre del parametro</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="name" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="description" id="_158355823206239">
+                <jpa:des>Descripcion del parametro</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="description" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(150)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="moduleSystemId" id="_158355823280640">
+                <jpa:des>Codigo identificador del modulo del sistema</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="module_system_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_158355825194141">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" xvt="" am="PRIVATE" name="parameterSystemId" id="_158355820423236">
+                <jpa:des>Codigo identificador del parametro</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="parameter_system_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="parameter_system_seq"/>
+                <jpa:sequence-generator name="parameter_system_seq" sequence-name="parameter_system_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="ParameterSystem.findAll">
+            <jpa:query>Select e from ParameterSystem e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ParameterSystem.findByName">
+            <jpa:query>Select p from ParameterSystem p where p.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ParameterSystem.findByDescription">
+            <jpa:query>Select p from ParameterSystem p where p.description=:description</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ParameterSystem.findByModuleSystemId">
+            <jpa:query>Select p from ParameterSystem p where p.moduleSystemId=:moduleSystemId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ParameterSystem.findByStatus">
+            <jpa:query>Select p from ParameterSystem p where p.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:table name="PARAMETERS_SYSTEMS"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="ValuePrimaryPK" abs="false" class="ValuePrimary" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158355829236042">
+        <jpa:ts e="true">
+            <jpa:a>_158355829236043</jpa:a>
+            <jpa:a>_158355860963045</jpa:a>
+            <jpa:a>_158355861859046</jpa:a>
+            <jpa:a>_158355862157447</jpa:a>
+            <jpa:a>_158355862940648</jpa:a>
+        </jpa:ts>
+        <jpa:inf e="true" n="java.io.Serializable"/>
+        <jpa:des>Tabla que guarda los valores principales de un parametro</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="valueId" id="_158355860963045">
+                <jpa:des>Valor del identificador que crea el usuario</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="value_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="title" id="_158355861859046">
+                <jpa:des>Etiqueta o titulo del valor primario</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="title" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(150)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Long" v="true" xvt="" am="PRIVATE" name="parameterSystemId" id="_158355862157447">
+                <jpa:des>Codigo identificador del parametro al que pertenece</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="parameter_system_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8" precision="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_158355862940648">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" xvt="" am="PRIVATE" name="valuePrimaryId" id="_158355829236043">
+                <jpa:des>Codigo identificador del valor primario</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="value_primary_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="value_primary_seq"/>
+                <jpa:sequence-generator name="value_primary_seq" sequence-name="value_primary_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="ValuePrimary.findAll">
+            <jpa:query>Select e from ValuePrimary e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ValuePrimary.findByValueId">
+            <jpa:query>Select v from ValuePrimary v where v.valueId=:valueId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ValuePrimary.findByTitle">
+            <jpa:query>Select v from ValuePrimary v where v.title=:title</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ValuePrimary.findByParameterSystemId">
+            <jpa:query>Select v from ValuePrimary v where v.parameterSystemId=:parameterSystemId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ValuePrimary.findByStatus">
+            <jpa:query>Select v from ValuePrimary v where v.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:table name="VALUES_PRIMARY"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyClass="ValueSecondaryPK" abs="false" class="ValueSecondary" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158355874262049">
+        <jpa:ts e="true">
+            <jpa:a>_158355874262150</jpa:a>
+            <jpa:a>_158355884445452</jpa:a>
+            <jpa:a>_158355885267753</jpa:a>
+            <jpa:a>_158355885395054</jpa:a>
+            <jpa:a>_158355886224655</jpa:a>
+            <jpa:a>_158355886351856</jpa:a>
+        </jpa:ts>
+        <jpa:inf e="true" n="java.io.Serializable"/>
+        <jpa:des>Tabla que guarda los valores secundarios del parametro</jpa:des>
+        <jpa:ath>CARLOS GUTIERREZ</jpa:ath>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="name" id="_158355884445452">
+                <jpa:des>nombre del valor secundario</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="name" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(50)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="valueAttr" id="_158355885267753">
+                <jpa:des>Valor del atributo secundario</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="value_attr" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(500)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" v="true" xvt="" am="PRIVATE" name="typeAttr" id="_158355885395054">
+                <jpa:des>Tipo de atributo: STRING,INTEGER,LONG,DOUBLE</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="type_attr" unique="false" nullable="true" insertable="true" updatable="true" column-definition="varchar(25)"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Long" v="true" xvt="" am="PRIVATE" name="valuePrimaryId" id="_158355886224655">
+                <jpa:des>Codigo del identificador del valor primario al que pertenece</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="value_primary_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8" precision="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Boolean" v="true" xvt="" am="PRIVATE" name="status" id="_158355886351856">
+                <jpa:des>Estado activo o inactivo</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="status" unique="false" nullable="true" insertable="true" updatable="true" column-definition="boolean"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Long" v="true" xvt="" am="PRIVATE" name="valueSecondaryId" id="_158355874262150">
+                <jpa:des>Codigo identificador del valor secundario</jpa:des>
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="value_secondary_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8"/>
+                <jpa:generated-value strategy="SEQUENCE" generator="value_secondary_seq"/>
+                <jpa:sequence-generator name="value_secondary_seq" sequence-name="value_secondary_seq" catalog="" schema="" initial-value="1" allocation-size="1"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="ValueSecondary.findAll">
+            <jpa:query>Select e from ValueSecondary e</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ValueSecondary.findByName">
+            <jpa:query>Select v from ValueSecondary v where v.name=:name</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ValueSecondary.findByValueAttr">
+            <jpa:query>Select v from ValueSecondary v where v.valueAttr=:valueAttr</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ValueSecondary.findByTypeAttr">
+            <jpa:query>Select v from ValueSecondary v where v.typeAttr=:typeAttr</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ValueSecondary.findByValuePrimaryId">
+            <jpa:query>Select v from ValueSecondary v where v.valuePrimaryId=:valuePrimaryId</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="ValueSecondary.findByStatus">
+            <jpa:query>Select v from ValueSecondary v where v.status=:status</jpa:query>
+        </jpa:nq>
+        <jpa:table name="VALUES_SECONDARY"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyType="D" compositePrimaryKeyClass="UserRolPK" abs="false" class="UserRol" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158416892282633">
+        <jpa:ath>CARLOS</jpa:ath>
+        <jpa:attributes>
+            <jpa:id attribute-type="Long" v="true" xvt="" am="PRIVATE" name="systemUserId" id="_158416892283234">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:nn/>
+                </jpa:bv>
+                <jpa:column name="system_user_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int8"/>
+                <jpa:generated-value strategy="DEFAULT"/>
+            </jpa:id>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="rolId" id="_158416896481336">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:bv>
+                    <jpa:nn/>
+                </jpa:bv>
+                <jpa:column name="rol_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="UserRol.findAll">
+            <jpa:query>Select e from UserRol e</jpa:query>
+        </jpa:nq>
+        <jpa:table name="USER_ROL"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyType="D" compositePrimaryKeyClass="RolTaskPK" abs="false" class="RolTask" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158430985612535">
+        <jpa:ath>CARLOS</jpa:ath>
+        <jpa:attributes>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="rolId" ui="false" id="_158430985612536">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="rol_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value strategy="DEFAULT"/>
+            </jpa:id>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="taskId" id="_158430985612637">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="task_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="RolTask.findAll">
+            <jpa:query>Select e from RolTask e</jpa:query>
+        </jpa:nq>
+        <jpa:table name="ROL_TASK"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyType="D" compositePrimaryKeyClass="RolMenuPK" abs="false" class="RolMenu" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158431007879942">
+        <jpa:ath>CARLOS</jpa:ath>
+        <jpa:attributes>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="rolId" ui="false" id="_158431007879943">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="rol_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value strategy="DEFAULT"/>
+            </jpa:id>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="menuId" id="_158431007879944">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="menu_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="RolMenu.findAll">
+            <jpa:query>Select e from RolMenu e</jpa:query>
+        </jpa:nq>
+        <jpa:table name="ROL_MENU"/>
+    </jpa:entity>
+    <jpa:entity compositePrimaryKeyType="D" compositePrimaryKeyClass="MenuSubmenuPK" abs="false" class="MenuSubmenu" v="true" jbn="false" xre="false" m="false" rootElement="_15834539936371" id="_158431030601750">
+        <jpa:ath>CARLOS</jpa:ath>
+        <jpa:attributes>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="menuId" ui="false" id="_158431030601751">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="menu_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value strategy="DEFAULT"/>
+            </jpa:id>
+            <jpa:id attribute-type="Integer" v="true" xvt="" am="PRIVATE" name="submenuId" id="_158431030601752">
+                <jpa:xwm/>
+                <jpa:xm/>
+                <jpa:column name="submenu_id" unique="false" nullable="true" insertable="true" updatable="true" column-definition="int4" precision="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="false" name="MenuSubmenu.findAll">
+            <jpa:query>Select e from MenuSubmenu e</jpa:query>
+        </jpa:nq>
+        <jpa:table name="MENU_SUBMENU"/>
+    </jpa:entity>
+    <jpa:inf e="true" n="java.io.Serializable"/>
+    <jpa:c/>
+    <jpa:wsl>
+        <jpa:ws n="Main" id="_15834539936372">
+            <i ref="_158345731450415" x="168" y="6"/>
+            <i ref="_158355820423235" x="531" y="423"/>
+            <i ref="_158346538926790" x="209" y="423"/>
+            <i ref="_158355874262049" x="989" y="356"/>
+            <i ref="_158355797190627" x="989" y="139"/>
+            <i ref="_158431007879942" x="586" y="578"/>
+            <i ref="_158346391174666" x="788" y="54"/>
+            <i ref="_158346440086575" x="352" y="216"/>
+            <i ref="_158346473656984" x="546" y="216"/>
+            <i ref="_158346336710760" x="10" y="423"/>
+            <i ref="_158346127190236" x="457" y="6"/>
+            <i ref="_158430985612535" x="394" y="563"/>
+            <i ref="_158355829236042" x="785" y="423"/>
+            <i ref="_158431030601750" x="752" y="589"/>
+            <i ref="_158346276286552" x="168" y="206"/>
+            <i ref="_158346185502543" x="9" y="216"/>
+            <i ref="_1583469869188112" x="613" y="6"/>
+            <i ref="_15834542571083" x="9" y="6"/>
+            <i ref="_158416892282633" x="394" y="423"/>
+            <i ref="_158345995466629" x="312" y="6"/>
+        </jpa:ws>
+    </jpa:wsl>
+</jpa:entity-mappings>

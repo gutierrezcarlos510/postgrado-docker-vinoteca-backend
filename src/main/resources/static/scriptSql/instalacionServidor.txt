@@ -1,0 +1,19 @@
+INSTALACION
+Para la instalacion en servidor se realizo los siguientes pasos
+* Configurar subdominio en servidor
+    creacion de virtual-host en tomcat
+    creacion de subdominio
+    creacion de certificado con certbot
+    creacion de carpeta para subir WAR. Ademas de dar permisos para subir
+    Creacion de carpeta archivos del proyecto en: archivos/archivosCasavieja   (Tb se asigno como dueño a tomcat y grupo tomcat)
+    Se subio el war configurando los siguientes datos: ruta para subir archivos, configurar logs de ERROR, configurar base de datos
+* Configurar BAse de datos
+    Creacion de usuario y clave. Para la clave se hizo con Avast password
+    Se creo el usuario en postgres con permisos de logueo
+    Se creo la base de datos , asignando al usuario creado: user_casavieja
+    se restauro la base de datos
+    se dio los permisos del acceso a todos los datos al usuario: user_casavieja
+    se ejecuto el permiso al esquema business:
+    GRANT  USAGE   ON SCHEMA business  TO user_casavieja;
+* Configuracion de FRONT END
+    se construye el proyecto SPA: quasar build

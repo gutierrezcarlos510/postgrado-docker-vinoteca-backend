@@ -1,0 +1,71 @@
+columns[0][data]:id
+columns[0][name]:id
+columns[0][searchable]:
+columns[0][search][regex]:false
+columns[0][search][value]:
+columns[0][orderable]:true
+draw:1
+order[0][column]:0
+order[0][dir]:desc
+search[value]:
+search[regex]:false
+start:0
+length:10
+
+
+
+
+CREATE OR REPLACE PROCEDURE business.test_egreso(IN p_movimiento_id bigint, IN p_sucursal_id integer, IN productos integer[], IN c_unidades integer[], IN c_cajas integer[])
+ LANGUAGE plpgsql
+AS $procedure$
+declare
+    v_length integer := array_length(productos,1);
+    v_index integer := 1;
+    v_unixcaja int4;
+    v_cantidad_detalle int4;
+	v_cantidad_detalle_aux int4;
+    v_cod_alm int8;
+	array_almacen int8[];
+	array_cantidad int4[];
+	array_tam int4;
+	array_index integer;
+	cantidad_existente_almacen int4;
+	V_TIPO_EGRESO_MOVIMIENTO character varying := '4';
+begin
+    while v_index <= v_length loop
+        -- OBTENER PRODUCTO --
+        select unidad_por_caja into v_unixcaja from business.producto where id = productos[v_index];
+		-- Calcular el total de productos
+		v_cantidad_detalle := (c_cajas[v_index] * v_unixcaja) + c_unidades[v_index];
+		cantidad_existente_almacen := (select coalesce(sum(cantidad),0) from almacen where producto_id = productos[v_index] and branch_office_id = p_sucursal_id and cantidad > 0);
+		--Validar si existe la cantidad suficiente en almacen
+		RAISE NOTICE 'Cantidad en almacen: % y la cantidad de detalle: %',cantidad_existente_almacen,v_cantidad_detalle;
+		if cantidad_existente_almacen >= v_cantidad_detalle then
+			v_cantidad_detalle_aux := v_cantidad_detalle;
+			--Consulta para buscar todos los almacenes con cantidad del producto
+			SELECT array_agg(id),array_agg(cantidad) into array_almacen,array_cantidad FROM business.almacen where producto_id = productos[v_index] and branch_office_id = p_sucursal_id and cantidad > 0;
+			array_tam := array_length(array_almacen, 1);
+			array_index := 1;
+			while (array_index <= array_tam and v_cantidad_detalle_aux > 0) loop
+				if array_cantidad[array_index] >= v_cantidad_detalle_aux then --Si cantidad en almacen es mayor o igual se descuenta todo el detalle restante y termina el ciclo
+					RAISE NOTICE 'el almacen es mayor al detalle % mayor que %',array_cantidad[array_index], v_cantidad_detalle_aux;
+					RAISE NOTICE 'Descontando almacen quedaria: %',(array_cantidad[array_index]- v_cantidad_detalle_aux);
+					v_cantidad_detalle_aux := 0;
+				else
+					RAISE NOTICE 'el almacen es menor al detalle % menor que %',array_cantidad[array_index], v_cantidad_detalle_aux;
+					RAISE NOTICE 'Descontando almacen quedaria: %',(v_cantidad_detalle_aux - array_cantidad[array_index]);
+					v_cantidad_detalle_aux := (v_cantidad_detalle_aux - array_cantidad[array_index]);
+				end if;
+				array_index := array_index +1;
+			end loop;
+		else
+			RAISE EXCEPTION 'No Existe la cantidad necesaria para disminuir del producto %',productos[v_index];
+		end if;
+        v_index := v_index + 1;
+      end LOOP;
+EXCEPTION
+    WHEN OTHERS THEN
+        RAISE EXCEPTION '%',sqlerrm;
+END
+$procedure$
+;

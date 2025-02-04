@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:Click en Registro Trabajador por email;
+:Registro de celular;
+if (Existe Celular BD Trabajador) then (true)
+  :Enviar a pagina de principal;
+else (false)
+    if(Existe Celular en BD Cliente) then (true)
+        :Obtener Datos de usuario y cliente;
+        :Registrar solo tabla trabajador con los datos de usuario;
+        else (false)
+        :Registrar todo de trabajador, usuario y clave;
+        endif
+endif
+stop
+
+@enduml

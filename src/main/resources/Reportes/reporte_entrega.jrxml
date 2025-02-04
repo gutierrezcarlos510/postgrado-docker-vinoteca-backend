@@ -1,0 +1,258 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="reporte_entrega" language="java" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e1cfd545-8347-47b8-a03e-cee20ffdffcf">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Casa_Vieja"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Crosstab_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab_CG" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab_CT" mode="Opaque" backcolor="#FCFCFC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab_CD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="xsucursal" class="java.lang.String"/>
+	<parameter name="direccion" class="java.lang.String"/>
+	<parameter name="celular" class="java.lang.String"/>
+	<parameter name="email" class="java.lang.String"/>
+	<parameter name="xusuario" class="java.lang.String"/>
+	<parameter name="entregaId" class="java.lang.Integer"/>
+	<parameter name="salidaId" class="java.lang.Long"/>
+	<parameter name="xfechaHora" class="java.sql.Timestamp"/>
+	<parameter name="xdistribuidor" class="java.lang.String"/>
+	<parameter name="ci" class="java.lang.String"/>
+	<query language="sql"><![CDATA[select sed.producto_id,p.nombre_comercial,p.categoria_id ,cp.descripcion xcategoria,sed.cantidad_caja,sed.cantidad_unitaria from business.salida_entrega_detalle sed 
+inner join business.producto p on p.id = sed.producto_id 
+inner join business.categoria_producto cp on cp.id = p.categoria_id 
+where sed.salida_id = $P{salidaId}   and sed.salida_entrega_id = $P{entregaId}   and sed.status = true]]></query>
+	<field name="producto_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="producto_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="producto_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="salida_entrega_detalle"/>
+	</field>
+	<field name="nombre_comercial" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre_comercial"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre_comercial"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="producto"/>
+	</field>
+	<field name="categoria_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="categoria_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="categoria_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="producto"/>
+	</field>
+	<field name="xcategoria" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="xcategoria"/>
+		<property name="com.jaspersoft.studio.field.label" value="xcategoria"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="categoria_producto"/>
+	</field>
+	<field name="cantidad_caja" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="cantidad_caja"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidad_caja"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="salida_entrega_detalle"/>
+	</field>
+	<field name="cantidad_unitaria" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="cantidad_unitaria"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidad_unitaria"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="salida_entrega_detalle"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="75" splitType="Stretch">
+		<element kind="staticText" uuid="ee95d6a8-9fcc-4305-9c81-b8075dd429ee" x="0" y="0" width="580" height="20" fontSize="12.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[NOTA DE ENTREGA GENERAL DE PRODUCTOS]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="a673973b-5894-4350-9f55-679b4321197d" x="50" y="20" width="60" height="18" fontSize="8.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<text><![CDATA[ENTREGA  A:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<box>
+				<topPen lineWidth="0.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="42eaef92-491c-4df1-912f-ad4da7b752b4" x="50" y="38" width="60" height="18" fontSize="8.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<text><![CDATA[C.I.:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<box>
+				<topPen lineWidth="0.0"/>
+				<leftPen lineWidth="0.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="f9ab804c-dc7a-40d6-8270-47ea4822ff53" x="420" y="20" width="60" height="18" fontSize="8.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<text><![CDATA[FECHA:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="staticText" uuid="c16f02b8-4739-4ac9-b2f0-d6ac64a90fa7" x="420" y="38" width="60" height="18" fontSize="8.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<text><![CDATA[N°ENTREGA:]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="d5222095-a559-4b6d-a0ab-eecf66be9845" x="110" y="20" width="310" height="18" fontSize="8.0" bold="true" vTextAlign="Middle">
+			<paragraph leftIndent="3" rightIndent="3"/>
+			<expression><![CDATA[$P{xdistribuidor}]]></expression>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+		</element>
+		<element kind="textField" uuid="ae8ed49e-d731-4634-a13a-e60a287f5d11" x="110" y="38" width="310" height="18" fontSize="8.0" bold="true" vTextAlign="Middle">
+			<paragraph leftIndent="3" rightIndent="3"/>
+			<expression><![CDATA[$P{ci}]]></expression>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+		</element>
+		<element kind="textField" uuid="d200b6d6-19e8-407f-a60b-bcb2d7fcab38" x="480" y="20" width="81" height="18" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA[$P{xfechaHora}]]></expression>
+		</element>
+		<element kind="textField" uuid="2362c1f0-4e42-4633-a72b-76d68a33e0e1" x="480" y="38" width="81" height="18" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA[$P{salidaId} + " - " +$P{entregaId}]]></expression>
+		</element>
+	</title>
+	<summary height="213" splitType="Stretch">
+		<element kind="crosstab" uuid="422f0132-5405-48e1-bd72-06cca138c295" stretchType="ElementGroupHeight" x="-10" y="0" width="590" height="130" horizontalPosition="Center">
+			<dataset/>
+			<headerCell>
+				<element kind="staticText" uuid="fa0b0d4c-3609-4d00-b70e-c79f10fc7b88" x="0" y="0" width="50" height="25" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Bottom">
+					<paragraph rightIndent="1"/>
+					<text><![CDATA[Producto]]></text>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+				</element>
+				<element kind="staticText" uuid="92c369a0-d6ae-48d9-912c-8fb27e78f87d" x="0" y="25" width="50" height="25" fontSize="8.0" bold="true" hTextAlign="Left" vTextAlign="Bottom">
+					<paragraph leftIndent="1"/>
+					<text><![CDATA[Medida]]></text>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</element>
+				<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			</headerCell>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+			<property name="com.jaspersoft.studio.crosstab.style.header" value="Crosstab_CH"/>
+			<property name="com.jaspersoft.studio.crosstab.style.group" value="Crosstab_CG"/>
+			<property name="com.jaspersoft.studio.crosstab.style.total" value="Crosstab_CT"/>
+			<property name="com.jaspersoft.studio.crosstab.style.detail" value="Crosstab_CD"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<rowGroup name="xcategoria" totalPosition="End" width="50">
+				<bucket class="java.lang.String">
+					<expression><![CDATA[$F{xcategoria}]]></expression>
+				</bucket>
+				<header mode="Opaque" style="Crosstab_CH">
+					<element kind="textField" uuid="5158145d-1d96-428d-9a4d-47fe91b032a5" x="0" y="0" width="50" height="30" fontSize="7.0" bold="true" vTextAlign="Middle">
+						<paragraph leftIndent="3" rightIndent="2"/>
+						<expression><![CDATA[$V{xcategoria}]]></expression>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					</element>
+				</header>
+				<totalHeader mode="Opaque" style="Crosstab_CT">
+					<element kind="staticText" uuid="a2a6f179-eff2-448e-a056-6d4ffdf1c5cb" x="0" y="0" width="50" height="25" fontSize="6.0" bold="true" vTextAlign="Middle">
+						<paragraph leftIndent="3"/>
+						<text><![CDATA[Total por categoria]]></text>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</element>
+				</totalHeader>
+			</rowGroup>
+			<columnGroup name="nombre_comercial" totalPosition="End" height="50">
+				<bucket class="java.lang.String">
+					<expression><![CDATA[$F{nombre_comercial}]]></expression>
+				</bucket>
+				<header mode="Opaque" style="Crosstab_CH">
+					<element kind="textField" uuid="5313b32e-4a44-4baf-af26-56268d90fb86" x="0" y="0" width="30" height="50" rotation="Left" fontSize="8.0" textAdjust="StretchHeight" bold="true" hTextAlign="Center" vTextAlign="Middle">
+						<paragraph leftIndent="2" rightIndent="2"/>
+						<expression><![CDATA[$V{nombre_comercial}]]></expression>
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+					</element>
+				</header>
+				<totalHeader mode="Opaque" style="Crosstab_CT">
+					<element kind="staticText" uuid="7c2b697e-f0cf-426f-b1d3-c67b6d20e493" x="0" y="0" width="40" height="50" rotation="Left" fontSize="8.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+						<text><![CDATA[Total por Producto]]></text>
+					</element>
+				</totalHeader>
+			</columnGroup>
+			<measure name="cantidad_caja_MEASURE" calculation="Sum" class="java.lang.Integer">
+				<expression><![CDATA[$F{cantidad_caja}]]></expression>
+			</measure>
+			<measure name="cantidad_unitaria_MEASURE" calculation="Sum" class="java.lang.Integer">
+				<expression><![CDATA[$F{cantidad_unitaria}]]></expression>
+			</measure>
+			<cell width="30" height="30">
+				<contents mode="Opaque" style="Crosstab_CD">
+					<element kind="textField" uuid="eb1ca027-ec9b-4086-a2b8-870d32a178b7" x="0" y="0" width="30" height="15" fontSize="7.0" hTextAlign="Center" vTextAlign="Middle">
+						<expression><![CDATA[$V{cantidad_caja_MEASURE}+" p"]]></expression>
+					</element>
+					<element kind="textField" uuid="a700b7bc-d91e-4a97-beae-e3d9f105c422" x="0" y="15" width="30" height="15" fontSize="7.0" hTextAlign="Center" vTextAlign="Middle">
+						<expression><![CDATA[$V{cantidad_unitaria_MEASURE}+" u"]]></expression>
+					</element>
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+				</contents>
+			</cell>
+			<cell width="40" height="30" columnTotalGroup="nombre_comercial">
+				<contents mode="Opaque" style="Crosstab_CT">
+					<element kind="textField" uuid="8eb73554-6c32-48b2-8cb8-2aa0cb9d083d" x="0" y="0" width="40" height="15" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+						<expression><![CDATA[$V{cantidad_caja_MEASURE_nombre_comercial_ALL}+" p"]]></expression>
+					</element>
+					<element kind="textField" uuid="9ad512a0-15fc-4baf-88f2-bf9cdb6a551f" x="0" y="15" width="40" height="15" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+						<expression><![CDATA[$V{cantidad_unitaria_MEASURE_nombre_comercial_ALL} + " u"]]></expression>
+					</element>
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+				</contents>
+			</cell>
+			<cell width="30" height="25" rowTotalGroup="xcategoria">
+				<contents mode="Opaque" style="Crosstab_CT">
+					<element kind="textField" uuid="3923cc98-859b-465a-b2f6-98e7e369435a" x="0" y="0" width="30" height="13" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+						<expression><![CDATA[$V{cantidad_caja_MEASURE_xcategoria_ALL}+" p"]]></expression>
+					</element>
+					<element kind="textField" uuid="acf991f9-8a8c-4d8a-95e2-c55cf6b77925" x="0" y="13" width="30" height="12" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+						<expression><![CDATA[$V{cantidad_unitaria_MEASURE_xcategoria_ALL}+" u"]]></expression>
+					</element>
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+				</contents>
+			</cell>
+			<cell width="40" height="25" rowTotalGroup="xcategoria" columnTotalGroup="nombre_comercial">
+				<contents mode="Opaque" style="Crosstab_CT">
+					<element kind="textField" uuid="66f304ea-43c0-4718-b5b9-a2ece188c7a5" x="0" y="0" width="40" height="13" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+						<expression><![CDATA[$V{cantidad_caja_MEASURE_xcategoria_nombre_comercial_ALL}+" p"]]></expression>
+					</element>
+					<element kind="textField" uuid="620c849f-be66-4938-8a50-8dd8964f43aa" x="0" y="13" width="40" height="12" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+						<expression><![CDATA[$V{cantidad_unitaria_MEASURE_xcategoria_nombre_comercial_ALL}+" u"]]></expression>
+					</element>
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+				</contents>
+			</cell>
+		</element>
+		<element kind="staticText" uuid="8e0d1dc8-aae5-4a73-9a3f-7c4776b05203" positionType="FixRelativeToBottom" x="30" y="193" width="190" height="20" fontSize="7.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[BODEGAS Y VIÑEDOS DOÑA VITA LA CASA VIEJA]]></text>
+		</element>
+		<element kind="staticText" uuid="649d2987-36c9-4c07-aae2-9179026706c8" positionType="FixRelativeToBottom" x="371" y="183" width="190" height="10" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[DISTRIBUIDOR]]></text>
+		</element>
+		<element kind="staticText" uuid="5b5abada-54db-4526-b1a3-d700c27b5bca" positionType="FixRelativeToBottom" stretchType="ElementGroupBottom" x="30" y="183" width="190" height="10" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[DESPACHADOR]]></text>
+		</element>
+	</summary>
+</jasperReport>

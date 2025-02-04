@@ -1,0 +1,296 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="subreportefinanciero" language="java" pageWidth="612" pageHeight="792" orientation="Landscape" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="b9b6dabb-ede5-482c-87be-f04dcc351b6e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="salidaid" class="java.lang.Long"/>
+	<parameter name="descuentoGeneral" class="java.math.BigDecimal"/>
+	<parameter name="total" class="java.math.BigDecimal"/>
+	<parameter name="estadoSalida" class="java.lang.String"/>
+	<parameter name="entrega" class="java.lang.Integer"/>
+	<query language="sql"><![CDATA[SELECT 
+    sed.salida_id,
+    sed.producto_id,
+    p.nombre_comercial AS xproducto,
+    p.unidad_por_caja,
+    SUM(sed.cantidad_total) AS cantidad_entregada,
+    (SELECT COALESCE(SUM(vd.cantidad_unitaria_total), 0) 
+     FROM business.venta_detalle vd 
+     INNER JOIN business.venta v ON v.status = TRUE AND v.id = vd.venta_id AND v.salida_id = sed.salida_id 
+     WHERE vd.producto_id = sed.producto_id) AS cantidad_vendida, 
+    (SELECT COALESCE(SUM(ad.cantidad), 0) 
+     FROM business.almacen_distribuidor ad 
+     INNER JOIN business.almacen a ON a.id = ad.almacen_id AND a.producto_id = sed.producto_id 
+     WHERE ad.salida_id = sed.salida_id) AS cantidad_actual, 
+    (SELECT COALESCE(SUM(vd2.subtotal), 0) 
+     FROM business.venta_detalle vd2 
+     INNER JOIN business.venta v2 ON v2.id = vd2.venta_id AND v2.salida_id = sed.salida_id AND v2.status = TRUE 
+     WHERE vd2.producto_id = sed.producto_id) AS subtotal,
+    (SELECT COALESCE(SUM(vd2.descuento), 0) 
+     FROM business.venta_detalle vd2 
+     INNER JOIN business.venta v2 ON v2.id = vd2.venta_id AND v2.salida_id = sed.salida_id AND v2.status = TRUE 
+     WHERE vd2.producto_id = sed.producto_id) AS descuento,
+    (SELECT COALESCE(SUM(vd2.total), 0) 
+     FROM business.venta_detalle vd2 
+     INNER JOIN business.venta v2 ON v2.id = vd2.venta_id AND v2.salida_id = sed.salida_id AND v2.status = TRUE 
+     WHERE vd2.producto_id = sed.producto_id) AS total
+FROM 
+    business.salida_entrega_detalle sed 
+INNER JOIN 
+    business.producto p ON p.id = sed.producto_id
+WHERE 
+    sed.salida_id = $P{salidaid} 
+    AND sed.status = TRUE
+    AND sed.salida_entrega_id = $P{entrega}
+GROUP BY 
+    sed.salida_id,
+    sed.producto_id,
+    p.nombre_comercial,
+    p.unidad_por_caja
+]]></query>
+	<field name="salida_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="salida_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="salida_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="salida_entrega_detalle"/>
+	</field>
+	<field name="producto_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="producto_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="producto_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="salida_entrega_detalle"/>
+	</field>
+	<field name="xproducto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="xproducto"/>
+		<property name="com.jaspersoft.studio.field.label" value="xproducto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="producto"/>
+	</field>
+	<field name="unidad_por_caja" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="unidad_por_caja"/>
+		<property name="com.jaspersoft.studio.field.label" value="unidad_por_caja"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="producto"/>
+	</field>
+	<field name="cantidad_entregada" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="cantidad_entregada"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidad_entregada"/>
+	</field>
+	<field name="cantidad_vendida" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="cantidad_vendida"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidad_vendida"/>
+	</field>
+	<field name="cantidad_actual" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="cantidad_actual"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidad_actual"/>
+	</field>
+	<field name="subtotal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="subtotal"/>
+		<property name="com.jaspersoft.studio.field.label" value="subtotal"/>
+	</field>
+	<field name="descuento" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="descuento"/>
+		<property name="com.jaspersoft.studio.field.label" value="descuento"/>
+	</field>
+	<field name="total" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="total"/>
+		<property name="com.jaspersoft.studio.field.label" value="total"/>
+	</field>
+	<variable name="V_subtotal_sum" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[$F{subtotal}]]></expression>
+	</variable>
+	<variable name="V_desceunto_sum" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[$F{descuento}]]></expression>
+	</variable>
+	<variable name="V_total_sum" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[$F{total}]]></expression>
+	</variable>
+	<variable name="num" calculation="Count" class="java.lang.Integer"/>
+	<variable name="cantidadVendidaCaja" class="java.lang.Integer">
+		<expression><![CDATA[((Integer)$F{cantidad_vendida}.intValue())/$F{unidad_por_caja}]]></expression>
+	</variable>
+	<variable name="cantidadVendidaUnidad" class="java.lang.Integer">
+		<expression><![CDATA[((Integer)$F{cantidad_vendida}.intValue())%$F{unidad_por_caja}]]></expression>
+	</variable>
+	<background splitType="Stretch"/>
+	<columnHeader height="50">
+		<element kind="staticText" uuid="0188ba88-16d7-47c2-9567-5fbc62404f18" x="40" y="0" width="225" height="20" fontSize="8.0" bold="true" vTextAlign="Middle">
+			<paragraph leftIndent="3"/>
+			<text><![CDATA[RESUMEN FINANCIERO]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+			<box>
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="ae482de9-3dc1-4b0b-a0d6-98d34456ed52" x="40" y="20" width="30" height="30" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[No.]]></text>
+			<box>
+				<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="cabd5bb1-0bcb-4123-b45d-498329dbdd7d" x="70" y="20" width="195" height="30" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Producto]]></text>
+			<box>
+				<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="861b617c-8acc-491f-9bd7-6c67fd6abd00" x="265" y="20" width="114" height="15" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Cantidad Vendida]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<box>
+				<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="077e8143-426c-4b6a-9a43-716417f4aa6f" x="265" y="35" width="63" height="15" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Paquetes]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<box>
+				<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="28acb759-d86e-4731-85e7-53eb9cf8944f" x="328" y="35" width="51" height="15" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Unidades]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<box>
+				<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="f4dae0ac-2b5d-4090-81f3-f48a87915b5e" x="379" y="20" width="56" height="30" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Subtotal]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<box>
+				<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="e3863f9c-b97f-4aca-8209-2d20665491fe" x="435" y="20" width="60" height="30" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Descuento]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<box>
+				<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="0b7a4939-76c6-4242-a82a-9a5a5251407b" x="495" y="20" width="64" height="30" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Total]]></text>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<box>
+				<topPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="22">
+			<element kind="textField" uuid="163949db-5d52-4b97-b136-df1806de576b" x="379" y="0" width="56" height="22" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{subtotal}]]></expression>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="879024c1-27da-4e80-983d-fa9bfe0011f8" x="435" y="0" width="60" height="22" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{descuento}]]></expression>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="eb7a100a-0116-4191-9d2d-a801e8dbf382" x="495" y="0" width="64" height="22" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{total}]]></expression>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="765d8f41-3733-4b2a-acd9-7156315d30fb" x="70" y="0" width="195" height="22" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{xproducto}]]></expression>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="666c1d3e-41b2-4627-a588-b0afa3a3aab9" x="40" y="0" width="30" height="22" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$V{num}]]></expression>
+				<box>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="b252f713-f3a3-4147-b293-207eed77c942" x="265" y="0" width="63" height="22" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$V{cantidadVendidaCaja}]]></expression>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="80d0edd7-11c4-4670-83fd-64dd5932c1b7" x="328" y="0" width="51" height="22" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$V{cantidadVendidaUnidad}]]></expression>
+				<box>
+					<bottomPen lineWidth="0.5"/>
+				</box>
+			</element>
+		</band>
+	</detail>
+	<summary height="68">
+		<element kind="staticText" uuid="6d6526f7-f220-4ad8-a52b-32fe221651ae" x="265" y="0" width="114" height="19" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<text><![CDATA[Sumatoria]]></text>
+			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		</element>
+		<element kind="staticText" uuid="02ca0f19-5f13-42b8-9512-1e39a5a29378" x="379" y="19" width="116" height="19" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<text><![CDATA[Descuento general]]></text>
+		</element>
+		<element kind="staticText" uuid="bf92913b-6c8b-4729-b072-0404453561c9" x="379" y="38" width="116" height="19" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<text><![CDATA[TOTAL]]></text>
+		</element>
+		<element kind="textField" uuid="04acfd61-6039-45ee-a5f3-3385d1a08fa6" x="379" y="0" width="56" height="19" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$V{V_subtotal_sum}]]></expression>
+		</element>
+		<element kind="textField" uuid="3ac17a31-24d2-4bdc-b3f2-2bf4d7e74c63" x="435" y="0" width="60" height="19" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$V{V_desceunto_sum}]]></expression>
+		</element>
+		<element kind="textField" uuid="4f361256-5ea1-4a39-a4f9-6c401bb812fc" x="495" y="0" width="64" height="19" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$V{V_total_sum}]]></expression>
+		</element>
+		<element kind="textField" uuid="339727da-820f-4e41-b0de-00dfd9256c4c" x="495" y="19" width="64" height="19" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$P{descuentoGeneral}]]></expression>
+		</element>
+		<element kind="textField" uuid="3af9ea01-f0c6-47a6-b4c8-9e00500c810b" x="495" y="38" width="64" height="19" fontSize="8.0" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$P{total}]]></expression>
+		</element>
+		<element kind="staticText" uuid="dc345639-d3d6-4024-8a44-7ce6dbadd091" x="40" y="38" width="70" height="19" fontSize="9.0" bold="true" vTextAlign="Middle">
+			<text><![CDATA[Estado salida]]></text>
+		</element>
+		<element kind="textField" uuid="265c1389-3af4-4b1a-bc53-2fcfc6d58871" x="110" y="38" width="210" height="19" fontSize="8.0" vTextAlign="Middle">
+			<expression><![CDATA[$P{estadoSalida}]]></expression>
+		</element>
+	</summary>
+</jasperReport>

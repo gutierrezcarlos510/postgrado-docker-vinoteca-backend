@@ -1,0 +1,397 @@
+{
+  "item": [
+    {
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "path": [
+            "ingreso",
+            "listPage"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "false",
+              "equals": true,
+              "description": ""
+            }
+          ],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/ingreso/listPage"
+        }
+      },
+      "response": [
+        {
+          "name": "listPage-Example",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "path": [
+                "ingreso",
+                "listPage"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "false",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "host": "{{casa-vieja-backend}}",
+              "raw": "{{casa-vieja-backend}}/ingreso/listPage"
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "mar, 05 nov 202423:50:01 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset=UTF-8"
+            }
+          ],
+          "body": "{\n    \"draw\": \"\", //The draw.\n    \"recordsFiltered\": \"\", //The records filtered.\n    \"recordsTotal\": \"\", //The records total.\n    \"data\": [ //The list of data objects.\n        {}\n    ]\n}"
+        }
+      ],
+      "name": "listPage"
+    },
+    {
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "path": [
+            "ingreso",
+            "findById",
+            ":ingresoId"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/ingreso/findById/{ingresoId}"
+        }
+      },
+      "response": [
+        {
+          "name": "findbyId-Example",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "path": [
+                "ingreso",
+                "findById",
+                ":ingresoId"
+              ],
+              "query": [],
+              "host": "{{casa-vieja-backend}}",
+              "raw": "{{casa-vieja-backend}}/ingreso/findById/{ingresoId}"
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "mar, 05 nov 202423:50:01 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset=UTF-8"
+            }
+          ],
+          "body": "{\n    \"id\": 0,\n    \"numero\": 0,\n    \"fecha\": \"\",\n    \"usuarioRecepcionId\": 0,\n    \"usuarioEntregaId\": 0,\n    \"observacion\": \"\",\n    \"branchOfficeId\": 0,\n    \"createdAt\": \"\",\n    \"createdBy\": 0,\n    \"updatedAt\": \"\",\n    \"updatedBy\": 0,\n    \"status\": false,\n    \"xusuarioRecepcion\": \"\",\n    \"xusuarioEntrega\": \"\",\n    \"detalles\": [\n        {\n            \"id\": 0,\n            \"ingresoId\": 0,\n            \"productoId\": 0,\n            \"lote\": \"\",\n            \"fechaElaboracion\": \"\",\n            \"fechaVencimiento\": \"\",\n            \"cantidadUnitaria\": 0,\n            \"cantidadCaja\": 0,\n            \"cantidadTotalUnitaria\": 0,\n            \"xproducto\": \"\",\n            \"almacenId\": 0\n        }\n    ]\n}"
+        }
+      ],
+      "name": "findbyId"
+    },
+    {
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\n  \"id\": 0,\n  \"numero\": 0,\n  \"fecha\": \"\",\n  \"usuarioRecepcionId\": 0,\n  \"usuarioEntregaId\": 0,\n  \"observacion\": \"\",\n  \"branchOfficeId\": 0,\n  \"createdBy\": 0,\n  \"productos\": [\n    0\n  ],\n  \"lotes\": [\n    \"\"\n  ],\n  \"elaboraciones\": [\n    \"\"\n  ],\n  \"vencimientos\": [\n    \"\"\n  ],\n  \"unidades\": [\n    0\n  ],\n  \"cajas\": [\n    0\n  ]\n}"
+        },
+        "url": {
+          "path": [
+            "ingreso",
+            "save"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/ingreso/save"
+        }
+      },
+      "response": [
+        {
+          "name": "save-Example",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n    \"id\": 0,\n    \"numero\": 0,\n    \"fecha\": \"\",\n    \"usuarioRecepcionId\": 0,\n    \"usuarioEntregaId\": 0,\n    \"observacion\": \"\",\n    \"branchOfficeId\": 0,\n    \"createdBy\": 0,\n    \"productos\": [\n        0\n    ],\n    \"lotes\": [\n        \"\"\n    ],\n    \"elaboraciones\": [\n        \"\"\n    ],\n    \"vencimientos\": [\n        \"\"\n    ],\n    \"unidades\": [\n        0\n    ],\n    \"cajas\": [\n        0\n    ]\n}"
+            },
+            "url": {
+              "path": [
+                "ingreso",
+                "save"
+              ],
+              "query": [],
+              "host": "{{casa-vieja-backend}}",
+              "raw": "{{casa-vieja-backend}}/ingreso/save"
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "mar, 05 nov 202423:50:02 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset=UTF-8"
+            }
+          ],
+          "body": "{\n    \"id\": 0,\n    \"numero\": 0,\n    \"fecha\": \"\",\n    \"usuarioRecepcionId\": 0,\n    \"usuarioEntregaId\": 0,\n    \"observacion\": \"\",\n    \"branchOfficeId\": 0,\n    \"createdAt\": \"\",\n    \"createdBy\": 0,\n    \"updatedAt\": \"\",\n    \"updatedBy\": 0,\n    \"status\": false,\n    \"xusuarioRecepcionId\": \"\",\n    \"xusuarioEntregaId\": \"\"\n}"
+        }
+      ],
+      "name": "save"
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text",
+            "description": ""
+          }
+        ],
+        "url": {
+          "path": [
+            "ingreso",
+            "delete",
+            ":id"
+          ],
+          "query": [],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/ingreso/delete/{id}"
+        }
+      },
+      "response": [
+        {
+          "name": "delete-Example",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text",
+                "description": ""
+              }
+            ],
+            "url": {
+              "path": [
+                "ingreso",
+                "delete",
+                ":id"
+              ],
+              "query": [],
+              "host": "{{casa-vieja-backend}}",
+              "raw": "{{casa-vieja-backend}}/ingreso/delete/{id}"
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "mar, 05 nov 202423:50:02 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset=UTF-8"
+            }
+          ],
+          "body": "{\n    \"id\": 0,\n    \"numero\": 0,\n    \"fecha\": \"\",\n    \"usuarioRecepcionId\": 0,\n    \"usuarioEntregaId\": 0,\n    \"observacion\": \"\",\n    \"branchOfficeId\": 0,\n    \"createdAt\": \"\",\n    \"createdBy\": 0,\n    \"updatedAt\": \"\",\n    \"updatedBy\": 0,\n    \"status\": false,\n    \"xusuarioRecepcionId\": \"\",\n    \"xusuarioEntregaId\": \"\"\n}"
+        }
+      ],
+      "name": "delete"
+    },
+    {
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "path": [
+            "ingreso",
+            "reporteIngreso"
+          ],
+          "query": [
+            {
+              "key": "ingresoId",
+              "value": "",
+              "equals": true,
+              "description": ""
+            }
+          ],
+          "host": "{{casa-vieja-backend}}",
+          "raw": "{{casa-vieja-backend}}/ingreso/reporteIngreso"
+        }
+      },
+      "response": [
+        {
+          "name": "reporteIngreso-Example",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "path": [
+                "ingreso",
+                "reporteIngreso"
+              ],
+              "query": [
+                {
+                  "key": "ingresoId",
+                  "value": "",
+                  "equals": true,
+                  "description": ""
+                }
+              ],
+              "host": "{{casa-vieja-backend}}",
+              "raw": "{{casa-vieja-backend}}/ingreso/reporteIngreso"
+            }
+          },
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "name": "date",
+              "key": "date",
+              "value": "mar, 05 nov 202423:50:02 GMT",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "name": "server",
+              "key": "server",
+              "value": "Apache-Coyote/1.1",
+              "description": "A name for the server"
+            },
+            {
+              "name": "transfer-encoding",
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            },
+            {
+              "name": "content-type",
+              "key": "content-type",
+              "value": "application/json;charset=UTF-8"
+            }
+          ],
+          "body": "{}"
+        }
+      ],
+      "name": "reporteIngreso"
+    }
+  ],
+  "info": {
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "name": "IngresoC-20241105235002",
+    "description": "IngresoC"
+  }
+}
